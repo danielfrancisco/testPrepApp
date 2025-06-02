@@ -1,0 +1,29 @@
+
+.homePageContent{
+  margin-left: 11vw;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  
+}
+
+.headerHomePage{
+     width: 340px;
+     font-size: 40px;
+}
+
+.descriptionHomePage{
+    width: 300px;
+    color: #484848;
+}
+
+.registerButtons{
+  margin-top: 10px;
+    display: flex;
+    width: max-content;
+    gap: 20px;
+    align-items: flex-start;
+    
+    
+}
