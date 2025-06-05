@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import "../styles/pages/testsPage.scss"
+import { useNavigate } from "react-router-dom"
 
 type tests = {
   id: number;
@@ -19,6 +20,7 @@ export default function TestsPage(){
      const[choiseIsCorrect, setChoiseIsCorrect] = useState(false)
 
      const {subject} = useParams()
+     const navigate = useNavigate()
      
     useEffect(()=>{
        fetch(`http://localhost:3000/tests/${subject}_test`)
@@ -26,17 +28,15 @@ export default function TestsPage(){
        .then(data=>setTests(data))
      },[])
 
-     useEffect(()=>{
-       console.log("score counter", scoreCounter)
-     },[scoreCounter])
-     
-     
     // increases currentQuestion to show the next question
      function handleNext(){
        if(currentQuestion<tests.length-1){
         setQuestion(currentQuestion+1)
        }
-       
+
+       if(currentQuestion===tests.length-1){
+            navigate(`/test-score/${scoreCounter}`)
+       }
        setChoiseIsCorrect(false)
      }
       //not relevant just a custom capitalize function
@@ -48,11 +48,10 @@ export default function TestsPage(){
     //increases scoreCounter if the user's choice is correct
      function handleSelection(e:React.MouseEvent<HTMLDivElement>){
       //  if they've already clicked the correct option, bail out
-         if(choiseIsCorrect) return
+         if(choiseIsCorrect)return
 
          const target = e.target as HTMLElement;
          const choice = target.innerHTML
-         console.log(choice, tests[currentQuestion]?.correct_answer)
          if(choice===tests[currentQuestion]?.correct_answer){
             setScoreCounter(scoreCounter=>scoreCounter+25) 
             setChoiseIsCorrect(true)
@@ -77,10 +76,6 @@ export default function TestsPage(){
               {tests[currentQuestion]?.option_d}
             </div>
             <button onClick={handleNext}>Next</button>
-        </div>
-
-        <div className="options">
-
         </div>
       </>
     )

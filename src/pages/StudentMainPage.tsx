@@ -17,7 +17,7 @@ export default function StudentMainPage(){
         <> 
              <div className="studentMainPageIntro">
              <h1>Welcome, {user}</h1>
-             <p>Prepare for your exams with preactice questions</p>
+             <p>Prepare for your exams with practice questions</p>
              <h2>Avaiable Tests</h2>
              </div>
              

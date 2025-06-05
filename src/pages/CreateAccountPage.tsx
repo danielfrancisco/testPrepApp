@@ -7,6 +7,7 @@ type FormData = {
   name: string;
   email: string;
   password: string;
+  
 };
 
 type FormErrors = {
@@ -16,11 +17,11 @@ type FormErrors = {
 };
 
 export default function CreateAccountPage() {
-  const [formData, setFormData] = useState<FormData>({
+    const [formData, setFormData] = useState<FormData>({
      name: '',
      email: '',
      password: '',
-  });
+    });
 
   const [errors, setErrors] = useState<FormErrors>({
      name: '',
@@ -70,16 +71,16 @@ export default function CreateAccountPage() {
         // If no errors, run submission logic
         try {
             
-            // const res = await fetch('https://example.com/api/data', {
-            //   method: 'POST',
-            //   headers: {
-            //     'Content-Type': 'application/json',
-            //   },
-            //   body: JSON.stringify(formData),
-            // });
-            //
-            // const result = await res.json();
-            // console.log(result);
+            const res = await fetch('http://localhost:3000/create-user', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({form:formData, role:role }),
+            });
+            
+            const result = await res.json();
+            console.log(result);
             // navigate(`/${role}-main`);
         } catch (error) {
             console.error('Error:', error);

@@ -6,6 +6,7 @@ import UserRole from "./pages/UserRole"
 import StudentMainPage from './pages/StudentMainPage';
 import AdminMainPage from './pages/AdminMainPage';
 import TestsPage from "./pages/TestsPage"
+import TestScorePage from './pages/TestScorePage';
 
 export default function App(){
    return(
@@ -18,6 +19,7 @@ export default function App(){
             <Route path='/student-main' element={<StudentMainPage />} />
             <Route path='/admin-main' element={<AdminMainPage/>} />
             <Route path='/student-main/tests/:subject' element={<TestsPage />} />
+            <Route path='/test-score/:score' element={<TestScorePage />} />
 
         </Routes>
     </Router>

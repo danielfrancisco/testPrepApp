@@ -62,16 +62,16 @@ export default function LoginPage(){
     
             // If no errors, run submission logic
             try {
-                // const res = await fetch('https://example.com/api/data', {
-                //   method: 'POST',
-                //   headers: {
-                //     'Content-Type': 'application/json',
-                //   },
-                //   body: JSON.stringify(formData),
-                // });
-                //
-                // const result = await res.json();
-                // console.log(result);
+                const res = await fetch('http://localhost:3000/login', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({form: formData, role:role}),
+                });
+                
+                const result = await res.json();
+                console.log(result);
                 // navigate(`/${role}-main`);
             } catch (error) {
                 console.error('Error:', error);
@@ -91,7 +91,9 @@ return(
 
                 <label>
                     Password 
-                    <input name='password'onChange={(e)=>{GetInput(e)}}/>
+                    <input name='password' type="password" 
+                    onChange={(e)=>{GetInput(e)}}/>
+                    
                     <p>{errors.password}</p>
                 </label>
                 
