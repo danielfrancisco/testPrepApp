@@ -19,7 +19,7 @@ export default function HomePage(){
           </p>
 
           <div className='registerButtons'>
-            <RoundedButton children="GET STARTED!" variant='secondary' size='large' 
+            <RoundedButton children="Get Started!" variant='secondary' size='large' 
             route='/userRole/create-account'/>
             
           </div>

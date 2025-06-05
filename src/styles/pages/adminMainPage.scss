@@ -1,0 +1,65 @@
+.adminMainPageIntro{
+    display: flex;
+    width: 590px;
+    justify-self: center;
+    flex-direction: column;
+    margin-top: 40px;
+    
+    h1{
+        font-weight: bold;
+        font-size: 40px;
+        align-self: center;
+    }
+
+    
+}
+
+.adminEdits{
+    display: flex;
+    justify-self: center;
+    gap: 100px;
+    margin-top: 50px;
+    p{
+        
+        color: #484848;
+        display: inline;
+        
+    }
+    div{
+        height: 200px;
+        width: 200px;
+        padding: 20px;
+
+        border: solid 1px #DCDCDC;
+        display: flex;
+        justify-self: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 6px;
+        box-shadow: 0px 0px 10px #DCDCDC;
+        cursor: pointer;
+         &:hover{
+           box-shadow: 0px 0px 10px 5px #DCDCDC;
+        }
+        button{
+            height: 45px;
+        cursor: pointer;
+        width: 90px;
+        background-color:  #7C3AED;
+        border-radius: 6px;
+        outline: none;
+        color: white;
+        font-size: 17px;
+        font-weight: bold;
+        border: none;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
+        
+        }
+    }
+}
