@@ -16,7 +16,7 @@ export default function TestsPage(){
      const[tests, setTests] = useState<tests[]>([])
      const[scoreCounter, setScoreCounter] = useState(0)
      const[currentQuestion, setQuestion] = useState(0)
-     const[userChoise, setUserChoise] = useState('')
+     const[choiseIsCorrect, setChoiseIsCorrect] = useState(false)
 
      const {subject} = useParams()
      
@@ -36,22 +36,27 @@ export default function TestsPage(){
        if(currentQuestion<tests.length-1){
         setQuestion(currentQuestion+1)
        }
+       
+       setChoiseIsCorrect(false)
      }
-
+      //not relevant just a custom capitalize function
      function capitalize(str: string | undefined):string {
       if (!str) return '';
       return str[0].toUpperCase() + str.slice(1).toLowerCase();
     }
    
-    //increases scoreCounter if user choice is correct
+    //increases scoreCounter if the user's choice is correct
      function handleSelection(e:React.MouseEvent<HTMLDivElement>){
+      //  if they've already clicked the correct option, bail out
+         if(choiseIsCorrect) return
+
          const target = e.target as HTMLElement;
          const choice = target.innerHTML
          console.log(choice, tests[currentQuestion]?.correct_answer)
          if(choice===tests[currentQuestion]?.correct_answer){
-            setScoreCounter(scoreCounter+25) 
-         }
-         
+            setScoreCounter(scoreCounter=>scoreCounter+25) 
+            setChoiseIsCorrect(true)
+         }         
         }
 
     return(
