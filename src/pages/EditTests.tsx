@@ -1,9 +1,14 @@
 import "../styles/pages/editTests.scss"
 import { useState } from "react"
 import RoundedButton from "../components/RoundedButton"
+import { useRequireAuth } from "../customHooks/useRequireAuth"
 
 export default function EditTes(){
     const[tests] = useState(['Math', 'History', 'Biology', 'Chemistry'])
+
+    const shouldRender = useRequireAuth();
+
+     if (!shouldRender) return null;
 
  return(
         <>

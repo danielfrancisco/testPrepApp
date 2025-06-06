@@ -1,6 +1,10 @@
 import "../styles/pages/userPreferences.scss"
+import { useRequireAuth } from "../customHooks/useRequireAuth"
 
 export default function UserPreferences(){
+    const shouldRender = useRequireAuth();
+
+     if (!shouldRender) return null;
     return(
         <>
         <div className="userPreferencesContaier">

@@ -1,11 +1,14 @@
 import { useState } from "react"
 import "../styles/pages/studentScores.scss"
+import { useRequireAuth } from "../customHooks/useRequireAuth"
 
 export default function StudentScores(){
     const[scores, setScores] = useState([{name:'Daniel', mathScore:8, historyScore:10}, 
         {name:'Rick', mathScore:10, historyScore:9}
     ])
-
+   const shouldRender = useRequireAuth();
+   
+        if (!shouldRender) return null;
     return(
         <>
             <div className="student-scoresContainer">

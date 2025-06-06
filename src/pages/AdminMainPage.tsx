@@ -1,11 +1,16 @@
-import { useState } from "react"
 import "../styles/pages/adminMainPage.scss"
 import AdminNav from "../components/AdminNav"
 import RoundedButton from "../components/RoundedButton"
+import { useParams } from "react-router-dom"
+import { useRequireAuth } from "../customHooks/useRequireAuth"
 
 export default function AdminMainPage(){
-    const[user, setUser] = useState('Admin')
     
+    const user = useParams().user
+
+    const shouldRender = useRequireAuth();
+
+  if (!shouldRender) return null;
     return(
             <>
             <AdminNav/>

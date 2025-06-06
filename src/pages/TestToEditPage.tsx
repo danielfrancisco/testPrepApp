@@ -2,6 +2,7 @@ import RoundedButton from "../components/RoundedButton";
 import "../styles/pages/testToEditPage.scss"
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
+import { useRequireAuth } from "../customHooks/useRequireAuth"
 
 type tests = {
   question: string;
@@ -113,6 +114,10 @@ export default function TestToEditPage(){
         }
           setTests([])
     }
+
+    const shouldRender = useRequireAuth();
+
+     if (!shouldRender) return null;
 
     return(
         <>

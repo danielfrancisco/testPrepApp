@@ -1,6 +1,8 @@
 import "../styles/pages/loginPage.scss"
-import { useState, type FormEvent } from "react"
+import { useState, type FormEvent,} from "react"
 import { useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { useConditionalRedirect } from "../customHooks/useConditionalRedirect";
 
 type FormData = {
   email: string;
@@ -23,8 +25,12 @@ export default function LoginPage(){
          email: '',
         password: '',
       });
-    
-    //Pull the user’s role from the URL (e.g. /signup/student)
+
+      const shouldRender = useConditionalRedirect();
+
+      const navigate = useNavigate()
+      
+      //Pull the user’s role from the URL (e.g. /signup/student)
     const {role} = useParams()
 
     /*Update formData for any <input> change.
@@ -71,12 +77,22 @@ export default function LoginPage(){
                 });
                 
                 const result = await res.json();
-                console.log(result);
-                // navigate(`/${role}-main`);
+                
+                // localStorage.setItem('token',JSON.stringify(result))
+                 localStorage.setItem('username',result.username)
+                 localStorage.setItem('token',result.token)
+
+                if (role !== undefined) {
+                  localStorage.setItem('role', role);
+                }
+
+                navigate(`/${role}-main/${result.username}`);
             } catch (error) {
                 console.error('Error:', error);
             }
     };
+
+    if (!shouldRender) return null;
     
 return(
         <>

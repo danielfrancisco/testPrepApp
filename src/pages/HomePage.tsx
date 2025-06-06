@@ -1,8 +1,15 @@
+import { useEffect, useState } from 'react'
 import NavBar from '../components/NavBar'
 import RoundedButton from '../components/RoundedButton'
 import '../styles/pages/homePage.scss'
+import { useNavigate } from 'react-router-dom'
+import { useConditionalRedirect } from '../customHooks/useConditionalRedirect'
 
 export default function HomePage(){
+  const navigate= useNavigate()
+  const shouldRender = useConditionalRedirect();
+  
+  if (!shouldRender) return null;
     return(
         <>
           <NavBar/>

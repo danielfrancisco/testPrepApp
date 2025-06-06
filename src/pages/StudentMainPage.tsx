@@ -2,17 +2,23 @@ import { useState } from "react"
 import "../styles/pages/studentMainPage.scss"
 import { useNavigate } from "react-router-dom"
 import StudentNav from "../components/StudentNav"
+import { useParams } from "react-router-dom"
+import { useRequireAuth } from "../customHooks/useRequireAuth"
 
 export default function StudentMainPage(){
-    const[user, setUser] = useState('User')
-    const[tests, setTests] = useState(['Math', 'History', 'Biology', 'Chemistry'])
+    
+    const[tests,] = useState(['Math', 'History', 'Biology', 'Chemistry'])
     const navigate = useNavigate()
-
+    const user = useParams().user
     // Handler for clicking on a test: navigates to the test's page
     function handleClick( test:string){
-       navigate(`tests/${test.toLowerCase()}`)
+       navigate(`/tests/${test.toLowerCase()}`)
     
     }
+
+    const shouldRender = useRequireAuth();
+
+     if (!shouldRender) return null;
     
     return(
         <> 

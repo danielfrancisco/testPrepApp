@@ -1,6 +1,7 @@
 import "../styles/pages/userRole.scss"
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom';
+import { useConditionalRedirect } from "../customHooks/useConditionalRedirect";
 
 export default function UserRole(){
   const navigate = useNavigate()   
@@ -9,6 +10,10 @@ export default function UserRole(){
     function handleClick(role:string){
        navigate(`/${action}/${role}`)
    }
+
+   const shouldRender = useConditionalRedirect();
+
+     if (!shouldRender) return null;
 
     return(
         <>

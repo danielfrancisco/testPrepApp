@@ -1,7 +1,8 @@
-import { useState, type FormEvent} from "react"
+import { useState, type FormEvent, } from "react"
 import "../styles/pages/createAccountPage.scss"
 import { useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import { useConditionalRedirect } from "../customHooks/useConditionalRedirect"
 
 type FormData = {
   name: string;
@@ -29,11 +30,14 @@ export default function CreateAccountPage() {
     password: '',
   });
 
+
     //Pull the user’s role from the URL (e.g. /signup/student)
     const {role} = useParams()
 
     const navigate = useNavigate()
-     
+
+    const shouldRender = useConditionalRedirect();
+
     /*Update formData for any <input> change.
     Uses the input’s `name` attribute to map to our state keys.*/
     const GetInput = (e:React.ChangeEvent<HTMLInputElement>)=>{
@@ -81,11 +85,13 @@ export default function CreateAccountPage() {
             
             const result = await res.json();
             console.log(result);
-            // navigate(`/${role}-main`);
+            navigate(`/login/${role}`);
         } catch (error) {
             console.error('Error:', error);
         }
 };
+
+if (!shouldRender) return null;
 
     return(
         <>

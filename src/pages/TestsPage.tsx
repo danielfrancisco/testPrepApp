@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import "../styles/pages/testsPage.scss"
 import { useNavigate } from "react-router-dom"
+import { useRequireAuth } from "../customHooks/useRequireAuth"
 
 type tests = {
   id: number;
@@ -57,6 +58,10 @@ export default function TestsPage(){
             setChoiseIsCorrect(true)
          }         
         }
+
+    const shouldRender = useRequireAuth();
+
+     if (!shouldRender) return null;
 
     return(
       <>
