@@ -6,12 +6,12 @@ interface RoundedButton extends React.ButtonHTMLAttributes<HTMLButtonElement>{
   /*Button variant for styling
   default primary
   */
-   variant?: 'primary' | 'secondary';
+   variant?: 'primary' | 'secondary'| 'userPage';
   
   /*Button size for styling
   default medium
   */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | 'custom';
 
   //Contents of the button
    children?: React.ReactNode;

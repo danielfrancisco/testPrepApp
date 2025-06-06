@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "../styles/pages/studentMainPage.scss"
 import { useNavigate } from "react-router-dom"
+import StudentNav from "../components/StudentNav"
 
 export default function StudentMainPage(){
     const[user, setUser] = useState('User')
@@ -12,9 +13,10 @@ export default function StudentMainPage(){
        navigate(`tests/${test.toLowerCase()}`)
     
     }
-
+    
     return(
         <> 
+            <StudentNav/>
              <div className="studentMainPageIntro">
              <h1>Welcome, {user}</h1>
              <p>Prepare for your exams with practice questions</p>

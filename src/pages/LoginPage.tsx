@@ -93,7 +93,7 @@ return(
                     Password 
                     <input name='password' type="password" 
                     onChange={(e)=>{GetInput(e)}}/>
-                    
+
                     <p>{errors.password}</p>
                 </label>
                 

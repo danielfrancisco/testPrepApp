@@ -2,7 +2,6 @@ import NavBar from '../components/NavBar'
 import RoundedButton from '../components/RoundedButton'
 import '../styles/pages/homePage.scss'
 
-
 export default function HomePage(){
     return(
         <>

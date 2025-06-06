@@ -7,6 +7,8 @@ import StudentMainPage from './pages/StudentMainPage';
 import AdminMainPage from './pages/AdminMainPage';
 import TestsPage from "./pages/TestsPage"
 import TestScorePage from './pages/TestScorePage';
+import EditTests from './pages/EditTests';
+import TestToEditPage from './pages/TestToEditPage';
 
 export default function App(){
    return(
@@ -20,7 +22,8 @@ export default function App(){
             <Route path='/admin-main' element={<AdminMainPage/>} />
             <Route path='/student-main/tests/:subject' element={<TestsPage />} />
             <Route path='/test-score/:score' element={<TestScorePage />} />
-
+            <Route path='/edit-tests' element={<EditTests/>}/>
+            <Route path='/test-toEdit' element={<TestToEditPage/>}/>
         </Routes>
     </Router>
     )

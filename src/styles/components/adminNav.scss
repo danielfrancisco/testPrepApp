@@ -1,0 +1,23 @@
+
+.admintNav{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0px 2px 7px #DCDCDC;
+
+    img{
+        display: inline;
+        margin-left: 80px; 
+        height: 100px;
+        width: 100px;
+        cursor: pointer;
+    }
+
+    button{
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: 80px;
+        height: max-content;
+    }
+    
+}

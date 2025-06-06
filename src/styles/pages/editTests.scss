@@ -1,0 +1,39 @@
+.editTests-Container{
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+    h1{
+        position: relative;
+        top: -60px;
+    }
+}
+
+.edit-tests{
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    width: 800px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    flex-direction: row;
+   justify-items: center;
+   align-items: center;
+   
+   div{
+        margin-right: 100px;
+        border: solid 1px #DCDCDC;
+        margin-bottom: 10px;
+        width: 200px;
+        display: flex;
+        justify-self: center;
+        align-items: center;
+        flex-direction: column;
+        padding-bottom: 15px;
+        border-radius: 6px;
+        box-shadow: 0px 0px 10px #DCDCDC;
+        cursor: pointer;
+         &:hover{
+           box-shadow: 0px 0px 10px 5px #DCDCDC;
+        }
+    }
+}

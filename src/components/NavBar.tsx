@@ -17,7 +17,6 @@ export default function NavBar(){
 
              <div className='login-btns'>
                <RoundedButton children='Log in' route='userRole/login' 
-               
                />
                
              </div>
