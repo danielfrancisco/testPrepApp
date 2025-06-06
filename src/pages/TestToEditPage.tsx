@@ -31,13 +31,14 @@ export default function TestToEditPage(){
            .then(res=>res.json())
            .then(data=>setTests(data))  
            }
-        },[])
+        },[tests])
 
-    function handleChangeEdit(e:React.ChangeEvent<HTMLInputElement>, index:number){
+    async function handleChangeEdit(e:React.ChangeEvent<HTMLInputElement>, index:number){
         // shallow copy to trigger re-render
         const updatedTests = [...tests]; 
         // copy and update the object
         updatedTests[index] = { ...updatedTests[index], [e.target.name]: e.target.value }; 
+
         setTests(updatedTests);
     }
     
@@ -60,14 +61,57 @@ export default function TestToEditPage(){
             
             const result = await res.json();
             console.log(result);
-            // navigate(`/${role}-main`);
         }
        
         catch (error) {
             console.error('Error:', error);
         }
-
+       setTests([])
         
+    }
+
+    async function editQuestion(e:React.MouseEvent<HTMLButtonElement>, index:number){
+      const updatedQuestion = tests[index]
+      
+          try{
+          const res = await fetch('http://localhost:3000/update-question', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ updatedQuestion: updatedQuestion, subject: subject, id:index }),
+            });
+            
+            const result = await res.json();
+            console.log(result);
+            
+        }
+       catch (error) {
+            console.error('Error:', error);
+        }
+         setTests([]) 
+    }
+
+    async function deleteQuestion(e:React.MouseEvent<HTMLButtonElement>, index:number){
+       const updatedQuestion = tests[index]
+      
+          try{
+          const res = await fetch('http://localhost:3000/delete-question', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ updatedQuestion: updatedQuestion, subject: subject, id:index }),
+            });
+            
+            const result = await res.json();
+            console.log(result);
+            
+        }
+       catch (error) {
+            console.error('Error:', error);
+        }
+          setTests([])
     }
 
     return(
@@ -89,8 +133,8 @@ export default function TestToEditPage(){
                     <h2>Correct Answer</h2>
                    <input name='correct_answer' value={test?.correct_answer} onChange={(e)=>{handleChangeEdit(e, index)}}/>
 
-                   <RoundedButton children='save' variant="secondary" />
-                   <RoundedButton children='delete' />
+                   <RoundedButton children='save' variant="secondary" action={(event)=>{editQuestion(event, index)}}/>
+                   <RoundedButton children='delete'  action={(event)=>{deleteQuestion(event, index)}}/>
                 </div>
                 </div>)}
 

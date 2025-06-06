@@ -21,7 +21,7 @@ interface RoundedButton extends React.ButtonHTMLAttributes<HTMLButtonElement>{
   
   /*Optional: If provided, this function will be called 
   when the button is clicked. */
-   action?: () => void;
+   action?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 
 }
 
@@ -36,13 +36,13 @@ function RoundedButton({
 
   const navigate = useNavigate()
    
-  const handleClick = ()=>{
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>)=>{
       if(route){
         navigate(route)
       }
         
       if(action){
-        action()
+        action(event)
       }
   }
 

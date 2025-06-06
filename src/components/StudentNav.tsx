@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import {useState } from "react"
 import "../styles/components/studentNav.scss"
 import RoundedButton from "./RoundedButton"
 
