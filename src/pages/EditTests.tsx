@@ -13,7 +13,7 @@ export default function EditTes(){
              {tests.map((test,index)=><div  key={index}>
                 <h2>{test}</h2>
                 <p>5 questions</p>
-                 <RoundedButton children='Edit' variant='userPage' route=''/>
+                 <RoundedButton children='Edit' variant='userPage' route={`/test-toEdit/${test}`}/>
              </div>)}
              </div>
         </div>

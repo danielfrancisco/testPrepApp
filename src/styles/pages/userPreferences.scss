@@ -1,0 +1,14 @@
+
+.userPreferencesContaier{
+    display: flex;
+    justify-self: center;
+    margin-top: 20vh;
+    flex-direction: column;
+    input{
+        border-radius: 6px;
+        border: solid 1px darkgray;
+        outline: none;
+        height: 25px;
+        width: 300px;
+    }
+}

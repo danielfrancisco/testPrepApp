@@ -9,6 +9,9 @@ import TestsPage from "./pages/TestsPage"
 import TestScorePage from './pages/TestScorePage';
 import EditTests from './pages/EditTests';
 import TestToEditPage from './pages/TestToEditPage';
+import UserPreferences from './pages/userPreferences';
+import StudentScores from './pages/StudentScores';
+
 
 export default function App(){
    return(
@@ -23,7 +26,10 @@ export default function App(){
             <Route path='/student-main/tests/:subject' element={<TestsPage />} />
             <Route path='/test-score/:score' element={<TestScorePage />} />
             <Route path='/edit-tests' element={<EditTests/>}/>
-            <Route path='/test-toEdit' element={<TestToEditPage/>}/>
+            <Route path='/test-toEdit/:subject' element={<TestToEditPage/>}/>
+            <Route path='/user-preferences' element={<UserPreferences/>}/>
+            <Route path='/students-scores' element={<StudentScores/>}/>
+
         </Routes>
     </Router>
     )

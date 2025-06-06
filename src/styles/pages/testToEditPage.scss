@@ -1,13 +1,17 @@
 
+.testToEdit-title{
+    margin-left: 20px;
+    font-size: 29px;
+}
+
 .editableQuestionsContainer{
-    
     display: flex;
     gap: 25px;
     
     flex-direction: column;
     button{
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 40px;
+        
         margin-top: 30px;
         margin-bottom: 40px;
         font-size: 18px;
@@ -18,6 +22,7 @@
     box-shadow: 0px 0px 10px #DCDCDC;
     border-radius: 6px;
     width: 600px;
+    border: solid 1px #DCDCDC;
     padding: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -29,6 +34,7 @@
         width: 550px;
         height: 20px;
         margin-bottom: 9px;
+        font-size: 15px;
     }
     
 }

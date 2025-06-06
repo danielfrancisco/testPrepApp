@@ -1,9 +1,9 @@
 import RoundedButton from "../components/RoundedButton";
 import "../styles/pages/testToEditPage.scss"
 import React, { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
 
 type tests = {
-  id: number;
   question: string;
   option_a: string;
   option_b: string;
@@ -14,49 +14,105 @@ type tests = {
 
 export default function TestToEditPage(){
   const[tests, setTests] = useState<tests[]>([])
+  const[newQuestion, setNewQuestion] = useState<tests>({
+  question: '',
+  option_a: '',
+  option_b: '',
+  option_c: '',
+  option_d: '',
+  correct_answer: '',
+  })
+
+  const {subject} = useParams()
 
   useEffect(()=>{
            if(tests.length<1){
-              fetch(`http://localhost:3000/tests/math_test`)
+              fetch(`http://localhost:3000/tests/${subject}_test`)
            .then(res=>res.json())
            .then(data=>setTests(data))  
            }
-          
-         },[])
+        },[])
 
-    function handleChange(e:React.ChangeEvent<HTMLInputElement>, index:number){
+    function handleChangeEdit(e:React.ChangeEvent<HTMLInputElement>, index:number){
         // shallow copy to trigger re-render
         const updatedTests = [...tests]; 
         // copy and update the object
-        updatedTests[index] = { ...updatedTests[index], question: e.target.value }; 
+        updatedTests[index] = { ...updatedTests[index], [e.target.name]: e.target.value }; 
         setTests(updatedTests);
+    }
+    
+    function handleChangeAdd(e:React.ChangeEvent<HTMLInputElement>){
+        let updatedNewQuestion = {...newQuestion}; 
+        
+        updatedNewQuestion = { ...updatedNewQuestion, [e.target.name]: e.target.value }; 
+        setNewQuestion(updatedNewQuestion);
+    }
+
+    async function addQuestion(){
+        try{
+          const res = await fetch('http://localhost:3000/add-question', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ newQuestion: newQuestion, subject: subject }),
+            });
+            
+            const result = await res.json();
+            console.log(result);
+            // navigate(`/${role}-main`);
+        }
+       
+        catch (error) {
+            console.error('Error:', error);
+        }
+
+        
     }
 
     return(
         <>
-         <h1>Edit Math Test Questions</h1>
+         <h1 className="testToEdit-title">{subject} Test Questions</h1>
         
             <div className="editableQuestionsContainer">
               {tests.map((test, index)=><div key={index}>
                 <div className="editableQuestions">
                    <h2>Question</h2>
-                   <input value={test?.question} onChange={(e)=>{handleChange(e, index)}}/>
+                   <input name='question'value={test?.question} onChange={(e)=>{handleChangeEdit(e, index)}}/>
 
                    <h2>Answer Options</h2>
-                   <input value={test?.option_a} onChange={(e)=>{handleChange(e, index)}}/>
-                   <input value={test?.option_b} onChange={(e)=>{handleChange(e, index)}}/>
-                   <input value={test?.option_c} onChange={(e)=>{handleChange(e, index)}}/>
-                   <input value={test?.option_d} onChange={(e)=>{handleChange(e, index)}}/>
+                   <input name='option_a' value={test?.option_a} onChange={(e)=>{handleChangeEdit(e, index)}}/>
+                   <input name='option_b' value={test?.option_b} onChange={(e)=>{handleChangeEdit(e, index)}}/>
+                   <input name='option_c' value={test?.option_c} onChange={(e)=>{handleChangeEdit(e, index)}}/>
+                   <input name='option_d' value={test?.option_d} onChange={(e)=>{handleChangeEdit(e, index)}}/>
 
                     <h2>Correct Answer</h2>
-                   <input value={test?.correct_answer} onChange={(e)=>{handleChange(e, index)}}/>
-                </div>
+                   <input name='correct_answer' value={test?.correct_answer} onChange={(e)=>{handleChangeEdit(e, index)}}/>
 
-            </div>)}
-               <RoundedButton children='save' variant="secondary" size="large" route="/edit-tests"/>
-            </div>
-          
-         </>
+                   <RoundedButton children='save' variant="secondary" />
+                   <RoundedButton children='delete' />
+                </div>
+                </div>)}
+
+                <div className="editableQuestions">
+                    <h2>Add Question</h2>
+
+                    <h2>Question</h2>
+                   <input name='question' onChange={(e)=>handleChangeAdd(e)}/>
+
+                   <h2>Answer Options</h2>
+                   <input name='option_a' onChange={(e)=>handleChangeAdd(e)}/>
+                   <input name='option_b' onChange={(e)=>handleChangeAdd(e)}/>
+                   <input name='option_c' onChange={(e)=>handleChangeAdd(e)}/>
+                   <input name='option_d' onChange={(e)=>handleChangeAdd(e)}/>
+
+                    <h2>Correct Answer</h2>
+                   <input name='correct_answer' onChange={(e)=>handleChangeAdd(e)}/>
+                    
+                    <RoundedButton children='save' variant="secondary"  action={addQuestion}/>
+                  </div>
+                </div>
+          </>
     )
 }
 

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "../styles/components/studentNav.scss"
 import RoundedButton from "./RoundedButton"
 
@@ -7,8 +7,8 @@ const logoUrl = 'https://img.freepik.com/free-vector/quill-pen-logo-template_23-
 export default function StudentNav(){
   const[logo ,setLogo] = useState(logoUrl)
   const[primaryColor, setPrimaryColor] = useState('')
-
-    function logOut(){
+   
+   function logOut(){
        
     }
   
