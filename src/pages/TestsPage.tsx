@@ -19,6 +19,7 @@ export default function TestsPage(){
      const[scoreCounter, setScoreCounter] = useState(0)
      const[currentQuestion, setQuestion] = useState(0)
      const[choiseIsCorrect, setChoiseIsCorrect] = useState(false)
+     const[selected, setSelected] = useState('')
 
      const {subject} = useParams()
      const navigate = useNavigate()
@@ -31,6 +32,7 @@ export default function TestsPage(){
 
     // increases currentQuestion to show the next question
      function handleNext(){
+      setSelected('')
        if(currentQuestion<tests.length-1){
         setQuestion(currentQuestion+1)
        }
@@ -47,7 +49,8 @@ export default function TestsPage(){
     }
    
     //increases scoreCounter if the user's choice is correct
-     function handleSelection(e:React.MouseEvent<HTMLDivElement>){
+     function handleSelection(e:React.MouseEvent<HTMLDivElement>, selection: string){
+        setSelected(selection)
       //  if they've already clicked the correct option, bail out
          if(choiseIsCorrect)return
 
@@ -68,16 +71,22 @@ export default function TestsPage(){
         <h1 className="test-title">{`${capitalize(subject)} Test` }</h1>
         <div className="questionsContainer">
             <h2>{tests[currentQuestion]?.question}</h2>
-            <div className="options" tabIndex={0} onClick={(e)=>handleSelection(e)}>
+
+            <div className={`options ${selected === 'option1' ? 'active' : ''}`} tabIndex={0} 
+            onClick={(e)=>handleSelection(e, 'option1')}>
               {tests[currentQuestion]?.option_a}
             </div>
-            <div className="options"  tabIndex={0} onClick={(e)=>handleSelection(e)}>
+
+            <div className={`options ${selected === 'option2' ? 'active' : ''}`}  tabIndex={0}
+             onClick={(e)=>handleSelection(e, 'option2')}>
               {tests[currentQuestion]?.option_b}
             </div>
-            <div className="options"  tabIndex={0} onClick={(e)=>handleSelection(e)}>
+            <div className={`options ${selected === 'option3' ? 'active' : ''}`}  tabIndex={0} 
+            onClick={(e)=>handleSelection(e, 'option3')}>
               {tests[currentQuestion]?.option_c}
             </div>
-            <div className="options"   tabIndex={0} onClick={(e)=>handleSelection(e)}>
+            <div className={`options ${selected === 'option1' ? 'active' : ''}`}   tabIndex={0} 
+            onClick={(e)=>handleSelection(e, 'option4')}>
               {tests[currentQuestion]?.option_d}
             </div>
             <button onClick={handleNext}>Next</button>

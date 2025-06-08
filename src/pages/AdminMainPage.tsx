@@ -26,12 +26,6 @@ export default function AdminMainPage(){
                 </div>
 
                 <div>
-                    <h2>Organizations</h2>
-                    <p>Add diferent Styling</p>
-                    <RoundedButton children='Edit' variant='userPage' route="/user-preferences"/>
-                </div>
-
-                <div>
                     <h2>Student Scores</h2>
                     <p>View students</p>
                     <RoundedButton children='View' variant='userPage' route="/students-scores"/>

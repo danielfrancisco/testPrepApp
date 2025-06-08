@@ -92,6 +92,10 @@ export default function LoginPage(){
             }
     };
 
+    function RegisterNewUser(){
+      navigate(`/create-account/${role}`)
+    }
+
     if (!shouldRender) return null;
     
 return(
@@ -114,8 +118,12 @@ return(
                 </label>
                 
                 <button type='submit'>Log In</button>
-                
               </form>
+              <div className="loginPageRegister">
+                 <p>Dont have an account yet?</p>
+                 <h4 onClick={RegisterNewUser}>Register!</h4>
+              </div>
+              
               
             </div> 
         </>

@@ -2,7 +2,10 @@
 .CreateAccountPageContent{
     display: flex;
     justify-self: center;
-    
+    border: solid 1px #DCDCDC;
+    box-shadow: 0px 0px 10px #DCDCDC;
+    padding: 30px;
+    border-radius: 6px;
     margin-top: 100px;
     flex-direction: column;
     width: max-content;
@@ -31,7 +34,7 @@
         margin-top: 2px;
         display: block;
         
-        width: 100%;
+        width: 280px;
         height: 35px;
         border: solid 1px #DCDCDC;
         outline: none;
@@ -41,7 +44,7 @@
     }
 
     button{
-        background-color: black;
+        background-color: #7C3AED;
         color: white;
         border: none;
         border-radius: 6px;
