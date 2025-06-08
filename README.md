@@ -4,7 +4,7 @@ Frontend (React)
 
 - React (Vite)
 - Fetch api (for API requests)
-- SCC (for styling)
+- SCSS (for styling)
 - Node.js v20.7.0
 
 ## Live Demo
@@ -15,7 +15,9 @@ https://test-prep-app-tau.vercel.app/
 
 ## 1. Clone the repository
 
-git clone 
+https://github.com/danielfrancisco/testPrepApp
+
+git clone develop branch
 cd testPrepApp
 
 ## install dependencies
