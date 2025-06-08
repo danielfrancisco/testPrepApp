@@ -68,7 +68,7 @@ export default function LoginPage(){
     
             // If no errors, run submission logic
             try {
-                const res = await fetch('http://localhost:3000/login', {
+                const res = await fetch('https://testprepapi-render.onrender.com/login', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',

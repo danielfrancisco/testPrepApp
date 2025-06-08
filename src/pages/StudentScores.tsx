@@ -22,7 +22,7 @@ export default function StudentScores(){
     const token = localStorage.getItem('token') 
 
     useEffect(()=>{
-       fetch('http://localhost:3000/studentScores', {
+       fetch('https://testprepapi-render.onrender.com/studentScores', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,

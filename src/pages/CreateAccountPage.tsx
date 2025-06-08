@@ -75,7 +75,7 @@ export default function CreateAccountPage() {
         // If no errors, run submission logic
         try {
             
-            const res = await fetch('http://localhost:3000/users', {
+            const res = await fetch('https://testprepapi-render.onrender.com/users', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',

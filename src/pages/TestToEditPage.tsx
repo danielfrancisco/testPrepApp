@@ -97,7 +97,7 @@ export default function TestToEditPage(){
        const updatedQuestion = tests[index]
       
           try{
-          const res = await fetch('http://localhost:3000/questions', {
+          const res = await fetch('https://testprepapi-render.onrender.com/questions', {
               method: 'DELETE',
               headers: {
                 'Content-Type': 'application/json',

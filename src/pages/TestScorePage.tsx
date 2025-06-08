@@ -12,7 +12,7 @@ export default function TestScorePage(){
    
     async function addUserScore() {
     try {
-      const res = await fetch('http://localhost:3000/studentScores', {
+      const res = await fetch('https://testprepapi-render.onrender.com/studentScores', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
