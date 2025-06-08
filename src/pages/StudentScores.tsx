@@ -19,8 +19,15 @@ export default function StudentScores(){
       score: 0,
     }])
 
+    const token = localStorage.getItem('token') 
+
     useEffect(()=>{
-       fetch('http://localhost:3000/studentScores')
+       fetch('http://localhost:3000/studentScores', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      })
        .then(res=>res.json())
        .then(data=>setStundetScores(data))
     },[])
@@ -36,14 +43,19 @@ export default function StudentScores(){
         <>
           <div className="student-scoresContainer">
             <h1>Students Scores</h1>
+            <div className="scoreTableTitles">
+                    <h4>Subject</h4>
+                    <h4>Student</h4>
+                    <h4>Score</h4>
+                  </div>
              {studentScores.map((studentScore, index)=>(
                <div className="score-table" key={index}>
+                  
                   <div className="header row">
                     <div className="cell">{studentScore.subject_name}</div>
                   </div>
-      
-      
-              <div  className="cell">{studentScore.student_name}</div>
+                
+                <div  className="cell">{studentScore.student_name}</div>
                  <div  className="cell">{studentScore.score}</div>
               </div>
              ))}
