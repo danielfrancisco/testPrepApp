@@ -36,7 +36,7 @@ export default function TestsPage(){
        }
 
        if(currentQuestion===tests.length-1){
-            navigate(`/test-score/${scoreCounter}`)
+            navigate(`/test-score/${subject}/${scoreCounter}`)
        }
        setChoiseIsCorrect(false)
      }

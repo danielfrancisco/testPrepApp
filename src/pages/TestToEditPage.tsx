@@ -52,7 +52,7 @@ export default function TestToEditPage(){
 
     async function addQuestion(){
         try{
-          const res = await fetch('http://localhost:3000/add-question', {
+          const res = await fetch('http://localhost:3000/questions', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -75,8 +75,8 @@ export default function TestToEditPage(){
       const updatedQuestion = tests[index]
       
           try{
-          const res = await fetch('http://localhost:3000/update-question', {
-              method: 'POST',
+          const res = await fetch('http://localhost:3000/questions', {
+              method: 'PUT',
               headers: {
                 'Content-Type': 'application/json',
               },
@@ -97,8 +97,8 @@ export default function TestToEditPage(){
        const updatedQuestion = tests[index]
       
           try{
-          const res = await fetch('http://localhost:3000/delete-question', {
-              method: 'POST',
+          const res = await fetch('http://localhost:3000/questions', {
+              method: 'DELETE',
               headers: {
                 'Content-Type': 'application/json',
               },

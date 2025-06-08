@@ -2,12 +2,35 @@ import '../styles/pages/testScorePage.scss'
 import { useParams } from 'react-router-dom'
 import RoundedButton from '../components/RoundedButton'
 import { useRequireAuth } from "../customHooks/useRequireAuth"
+import { useEffect } from 'react'
 
 export default function TestScorePage(){
-    const {score} = useParams()
+    const {score, subject} = useParams()
     const shouldRender = useRequireAuth();
     const user = localStorage.getItem('username')
     
+   
+    async function addUserScore() {
+    try {
+      const res = await fetch('http://localhost:3000/studentScores', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user: user, score: score, subject:subject }),
+      });
+
+      const result = await res.json();
+      console.log(result);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
+    useEffect(()=>{
+        addUserScore()
+    },[])
+
      if (!shouldRender) return null;
     return(
         <>

@@ -75,7 +75,7 @@ export default function CreateAccountPage() {
         // If no errors, run submission logic
         try {
             
-            const res = await fetch('http://localhost:3000/create-user', {
+            const res = await fetch('http://localhost:3000/users', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
