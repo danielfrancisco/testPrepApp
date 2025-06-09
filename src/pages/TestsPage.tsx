@@ -43,7 +43,7 @@ export default function TestsPage(){
        }
        setChoiseIsCorrect(false)
      }
-      //not relevant just a custom capitalize function
+      //just a custom capitalize function
      function capitalize(str: string | undefined):string {
       if (!str) return '';
       return str[0].toUpperCase() + str.slice(1).toLowerCase();
