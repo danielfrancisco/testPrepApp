@@ -120,6 +120,7 @@ return(
                 <label>
                     Password 
                     <input name='password' type="password" 
+                    autoComplete="new-password"
                     onChange={(e)=>{GetInput(e)}}/>
 
                     <p>{errors.password}</p>
