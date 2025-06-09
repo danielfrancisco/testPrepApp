@@ -129,7 +129,7 @@ return(
               </form>
               <div className="loginPageRegister">
                  <p>Dont have an account yet?</p>
-                 <h4 onClick={RegisterNewUser}>Register!</h4>
+                 <h4 onClick={RegisterNewUser}>Sign Up!</h4>
               </div>
               
               
