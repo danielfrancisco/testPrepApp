@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "../styles/pages/studentScores.scss"
 import { useRequireAuth } from "../customHooks/useRequireAuth"
+import AdminNav from "../components/AdminNav"
 
 type StudentScores = {
    subject_name : string,
@@ -41,6 +42,7 @@ export default function StudentScores(){
         if (!shouldRender) return null;
     return(
         <>
+          <AdminNav/>
           <div className="student-scoresContainer">
             <h1>Students Scores</h1>
             <div className="scoreTableTitles">

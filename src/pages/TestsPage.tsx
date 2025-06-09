@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import "../styles/pages/testsPage.scss"
 import { useNavigate } from "react-router-dom"
 import { useRequireAuth } from "../customHooks/useRequireAuth"
+import StudentNav from "../components/StudentNav"
 
 type tests = {
   id: number;
@@ -68,6 +69,7 @@ export default function TestsPage(){
 
     return(
       <>
+        <StudentNav/>
         <h1 className="test-title">{`${capitalize(subject)} Test` }</h1>
         <div className="questionsContainer">
             <h2>{tests[currentQuestion]?.question}</h2>

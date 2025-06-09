@@ -18,11 +18,17 @@ export default function StudentNav(){
         localStorage.removeItem('role');
         navigate(`/`);
     }
+
+    function goToHomePage(){
+      navigate('/')
+    }
   
     return(
         <>
           <div className="stundetNav" style={{backgroundColor:primaryColor}}>
             <img alt="logo" src={logo}/>
+             <h4 onClick={goToHomePage}>Home Page</h4>
+            <h4>DashBoard</h4>
             <RoundedButton children='Log out' size="small" action={logOut}/> 
           </div>
         </>

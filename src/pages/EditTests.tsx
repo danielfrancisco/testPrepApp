@@ -2,6 +2,7 @@ import "../styles/pages/editTests.scss"
 import { useState } from "react"
 import RoundedButton from "../components/RoundedButton"
 import { useRequireAuth } from "../customHooks/useRequireAuth"
+import AdminNav from "../components/AdminNav"
 
 export default function EditTes(){
     const[tests] = useState(['Math', 'History', 'Biology', 'Chemistry'])
@@ -12,6 +13,7 @@ export default function EditTes(){
 
  return(
         <>
+        <AdminNav/>
         <div className="editTests-Container">
            <h1>Edition</h1>
            <div className="edit-tests">

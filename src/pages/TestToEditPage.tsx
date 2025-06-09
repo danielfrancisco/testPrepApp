@@ -3,6 +3,7 @@ import "../styles/pages/testToEditPage.scss"
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { useRequireAuth } from "../customHooks/useRequireAuth"
+import AdminNav from "../components/AdminNav";
 
 type tests = {
   question: string;
@@ -121,6 +122,7 @@ export default function TestToEditPage(){
 
     return(
         <>
+         <AdminNav/>
          <h1 className="testToEdit-title">{subject} Test Questions</h1>
         
             <div className="editableQuestionsContainer">
