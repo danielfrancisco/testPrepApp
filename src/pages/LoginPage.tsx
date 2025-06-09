@@ -77,10 +77,18 @@ export default function LoginPage(){
                 });
                 
                 const result = await res.json();
+
+                if (result.message === 'Invalid credentials') {
+                    const errorUpdate: FormErrors = {
+                        email: 'incorrect email or password',
+                        password: 'incorrect email or password',
+                    };
+                    setErrors(errorUpdate);
+                    return; // Prevent further execution
+                }
                 
-                // localStorage.setItem('token',JSON.stringify(result))
-                 localStorage.setItem('username',result.username)
-                 localStorage.setItem('token',result.token)
+                localStorage.setItem('username',result.username)
+                localStorage.setItem('token',result.token)
 
                 if (role !== undefined) {
                   localStorage.setItem('role', role);
