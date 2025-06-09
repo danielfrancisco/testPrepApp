@@ -23,9 +23,9 @@ export default function TestsPage(){
 
      const {subject} = useParams()
      const navigate = useNavigate()
-     
+     console.log(subject)
     useEffect(()=>{
-       fetch(`https://testprepapi-render.onrender.com/${subject}_test`)
+       fetch(`https://testprepapi-render.onrender.com/tests/${subject}_test`)
        .then(res=>res.json())
        .then(data=>setTests(data))
      },[])
