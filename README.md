@@ -11,6 +11,15 @@ Frontend (React)
 
 https://test-prep-app-tau.vercel.app/
 
+⚠️ Note on API Response Time
+
+⏳ Cold Start Warning (Render Free Tier):
+This server is hosted on Render.com using the free tier, which automatically puts the service to sleep after 15 minutes of inactivity.
+
+When the service is "asleep," the first request (e.g., login, account creation, data fetch) will experience a cold start delay of 30–120 seconds.
+
+Subsequent requests will be fast once the service is warmed up.
+
 ## Setup Instructions
 
 ## 1. Clone the repository
@@ -30,6 +39,13 @@ npm run dev
 
 ## Architecture
 
-Components Architecture: Modular, Reusable, and Isolated
+Component Architecture
 
-React Router (customizable, flexible)
+Modular
+
+Reusable
+
+Isolated
+
+Uses React Router for customizable and flexible routing.
+
