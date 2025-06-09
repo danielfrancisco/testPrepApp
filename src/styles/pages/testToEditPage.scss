@@ -2,11 +2,14 @@
 .testToEdit-title{
     margin-left: 20px;
     font-size: 29px;
+    position: relative;
+    top: 10px;
 }
 
 .editableQuestionsContainer{
     display: flex;
     gap: 25px;
+    margin-bottom: 40px;
     
     flex-direction: column;
     button{
