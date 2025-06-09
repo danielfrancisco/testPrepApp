@@ -9,7 +9,9 @@ Frontend (React)
 
 ## Live Demo
 
-https://test-prep-app-tau.vercel.app/
+Frontend: https://test-prep-app-tau.vercel.app/
+
+Backend API: https://testprepapi-render.onrender.com/
 
 ⚠️ Note on API Response Time
 
