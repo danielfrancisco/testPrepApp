@@ -26,7 +26,7 @@ export default function StudentNav(){
     return(
         <>
           <div className="stundetNav" style={{backgroundColor:primaryColor}}>
-            <img alt="logo" src={logo}/>
+            <img alt="logo" src={logo} onClick={goToHomePage}/>
              <h4 onClick={goToHomePage}>Home Page</h4>
             <h4>DashBoard</h4>
             <RoundedButton children='Log out' size="small" action={logOut}/> 
