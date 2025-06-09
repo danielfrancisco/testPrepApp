@@ -52,7 +52,7 @@ export default function TestToEditPage(){
 
     async function addQuestion(){
         try{
-          const res = await fetch('http://localhost:3000/questions', {
+          const res = await fetch('https://testprepapi-render.onrender.com/questions', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ export default function TestToEditPage(){
       const updatedQuestion = tests[index]
       
           try{
-          const res = await fetch('http://localhost:3000/questions', {
+          const res = await fetch('https://testprepapi-render.onrender.com/questions', {
               method: 'PUT',
               headers: {
                 'Content-Type': 'application/json',
