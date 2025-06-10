@@ -129,7 +129,7 @@ return(
                 <button type='submit'>Log In</button>
               </form>
               <div className="loginPageRegister">
-                 <p>Dont have an account yet?</p>
+                 <p>Don't have an account yet?</p>
                  <h4 onClick={RegisterNewUser}>Sign Up!</h4>
               </div>
               
