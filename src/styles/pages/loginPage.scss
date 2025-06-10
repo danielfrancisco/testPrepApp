@@ -74,6 +74,7 @@
     p{
         color: #484848;
         margin: 0; 
+        
     }
 
     h4{
@@ -81,7 +82,13 @@
        color: #7C3AED;
        cursor: pointer;
        font-size: 15px;
+      &:hover{
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+      }
        
     }
+
+    
     
 }
