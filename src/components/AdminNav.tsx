@@ -1,15 +1,12 @@
-import { useState } from "react"
 import "../styles/components/adminNav.scss"
 import RoundedButton from "./RoundedButton"
 import { useNavigate } from "react-router-dom"
 import StylingPreferences from "../appConfig/StylingPreferences.json"
 
 //navigation bar for admin main page
-const logoUrl = 'https://img.freepik.com/free-vector/quill-pen-logo-template_23-2149852429.jpg?semt=ais_hybrid&w=740'
-export default function AdminNav(){
-  const[logo ,setLogo] = useState(logoUrl)
-  const[primaryColor, setPrimaryColor] = useState('')
 
+export default function AdminNav(){
+ 
   const navigate = useNavigate()
 
     function logOut(){
