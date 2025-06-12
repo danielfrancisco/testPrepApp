@@ -2,6 +2,8 @@
     display: flex;
     width: 590px;
     justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
     flex-direction: column;
     margin-top: 40px;
     
@@ -16,7 +18,10 @@
 
 .adminEdits{
     display: flex;
+    margin-left: auto;
+    margin-right: auto;
     justify-self: center;
+    width: 600px;
     gap: 100px;
     margin-top: 50px;
     p{
@@ -29,10 +34,10 @@
         height: 200px;
         width: 200px;
         padding: 20px;
-
+        
         border: solid 1px #DCDCDC;
         display: flex;
-        justify-self: center;
+        
         align-items: center;
         flex-direction: column;
         border-radius: 6px;

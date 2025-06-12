@@ -3,9 +3,19 @@
     display: flex;
     justify-self: center;
     flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 20vh;
+    width: 350px;
+    
     h1{
         font-size: 40px;
+        margin-left: auto;
+    margin-right: auto;
     }
     gap: 10px;
+    button{
+        margin-left: auto;
+    margin-right: auto;
+    }
 }
