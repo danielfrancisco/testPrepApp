@@ -87,7 +87,7 @@ export default function TestsPage(){
             onClick={(e)=>handleSelection(e, 'option3')}>
               {tests[currentQuestion]?.option_c}
             </div>
-            <div className={`options ${selected === 'option1' ? 'active' : ''}`}   tabIndex={0} 
+            <div className={`options ${selected === 'option4' ? 'active' : ''}`}   tabIndex={0} 
             onClick={(e)=>handleSelection(e, 'option4')}>
               {tests[currentQuestion]?.option_d}
             </div>
